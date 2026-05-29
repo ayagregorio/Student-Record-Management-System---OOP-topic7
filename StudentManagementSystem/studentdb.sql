@@ -7,7 +7,7 @@ CREATE TABLE students (
     year_level VARCHAR(20)
 );
 
-INSERT INTO students (name, course, year_level) VALUES 
-('Aya Gregorio', 'BSIT', 'FIRST_YEAR'),
-('Yana Mendoza', 'BSIT', 'SECOND_YEAR'),
-('Alex Parojinog', 'BSIT', 'THIRD_YEAR');
+INSERT INTO students (name, course, year_level) VALUES
+('Aya Gregorio', 'BSIT', '1st Year'),
+('Yana Mendoza', 'BSIT', '2nd Year'),
+('Alex Parojinog', 'BSIT', '3rd Year');
