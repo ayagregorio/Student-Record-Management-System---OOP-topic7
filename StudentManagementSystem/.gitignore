@@ -1,0 +1,13 @@
+# Target compilation output folder (never commit this)
+target/
+
+# IntelliJ IDEA project settings configuration files
+.idea/
+*.iml
+
+# Crucial security: Ignore environment local configuration values
+.env
+
+# System files
+.DS_Store
+Thumbs.db

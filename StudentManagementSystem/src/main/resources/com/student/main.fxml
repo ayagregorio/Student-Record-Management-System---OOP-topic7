@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.student.Controller"
+      spacing="0"
+      prefWidth="780"
+      prefHeight="600"
+      styleClass="root-container">
+
+    <!-- header -->
+    <HBox styleClass="header" alignment="CENTER">
+        <Label text="Student Record Management System" styleClass="header-title"/>
+    </HBox>
+
+    <!-- body -->
+    <HBox spacing="20" VBox.vgrow="ALWAYS" styleClass="body">
+
+        <!-- left: form panel -->
+        <VBox spacing="14" styleClass="form-panel" minWidth="260">
+
+            <Label text="STUDENT DETAILS" styleClass="section-label"/>
+
+            <VBox spacing="4">
+                <Label text="Full Name" styleClass="field-label"/>
+                <TextField fx:id="txtName" promptText="e.g. Aya Gregorio"
+                           styleClass="text-field"/>
+            </VBox>
+
+            <VBox spacing="4">
+                <Label text="Course" styleClass="field-label"/>
+                <TextField fx:id="txtCourse" promptText="e.g. BSIT"
+                           styleClass="text-field"/>
+            </VBox>
+
+            <VBox spacing="4">
+                <Label text="Year Level" styleClass="field-label"/>
+                <ChoiceBox fx:id="cbYear" maxWidth="Infinity"
+                           styleClass="choice-box"/>
+            </VBox>
+
+            <!-- spacer -->
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <!-- status -->
+            <Label fx:id="lblStatus" wrapText="true" maxWidth="240"
+                   styleClass="status-label"/>
+
+            <!-- buttons -->
+            <VBox spacing="8">
+                <Button text="➕  Add Student"    onAction="#addStudent"
+                        maxWidth="Infinity" styleClass="btn-add"/>
+                <Button text="✏  Update Student" onAction="#updateStudent"
+                        maxWidth="Infinity" styleClass="btn-update"/>
+                <Button text="🗑  Delete Student" onAction="#deleteStudent"
+                        maxWidth="Infinity" styleClass="btn-delete"/>
+                <Button text="✖  Clear Fields"   onAction="#clearFields"
+                        maxWidth="Infinity" styleClass="btn-clear"/>
+            </VBox>
+
+        </VBox>
+
+        <!-- right: table panel -->
+        <VBox spacing="10" HBox.hgrow="ALWAYS" styleClass="table-panel">
+
+            <Label text="ALL STUDENTS" styleClass="section-label"/>
+
+            <TableView fx:id="table" VBox.vgrow="ALWAYS" styleClass="student-table">
+                <placeholder>
+                    <Label text="No records found."/>
+                </placeholder>
+                <columns>
+                    <TableColumn fx:id="colId"     text="ID"         prefWidth="50"/>
+                    <TableColumn fx:id="colName"   text="Name"       prefWidth="180"/>
+                    <TableColumn fx:id="colCourse" text="Course"     prefWidth="120"/>
+                    <TableColumn fx:id="colYear"   text="Year Level" prefWidth="110"/>
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+            </TableView>
+
+        </VBox>
+
+    </HBox>
+
+    <!-- footer -->
+    <HBox styleClass="footer" alignment="CENTER">
+        <Label text="Click a row to select · Fill all fields before saving"
+               styleClass="footer-text"/>
+    </HBox>
+
+</VBox>

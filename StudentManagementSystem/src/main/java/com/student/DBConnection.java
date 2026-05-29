@@ -1,0 +1,25 @@
+package com.student;
+
+import io.github.cdimascio.dotenv.Dotenv;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DBConnection {
+    private static final Dotenv dotenv = Dotenv.configure()
+            .directory("./StudentManagementSystem") // Explicitly targets the nested folder
+            .filename(".env")
+            .ignoreIfMissing()
+            .load();
+
+    public static Connection connect() {
+        try {
+            String url      = dotenv.get("DB_URL");
+            String user     = dotenv.get("DB_USER");
+            String password = dotenv.get("DB_PASSWORD");
+            return DriverManager.getConnection(url, user, password);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+}
